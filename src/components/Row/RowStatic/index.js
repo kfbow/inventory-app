@@ -46,7 +46,7 @@ const RowStatic = ({ addCheck, columns, element }) => {
         <div>
             <ListItem
                 leftIcon={renderCheckbox(addCheck, id)}
-                onClick={() => {}}
+                onClick={() => {addCheck(id)}}
             >
                 <div className="row" style={styles.centerize}>
                     <div className="six columns" style={styles.centerize}>

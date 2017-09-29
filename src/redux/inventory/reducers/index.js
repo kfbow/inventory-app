@@ -76,13 +76,20 @@ export default (
                 .set('displayedItems', items.slice(0, action.amount))
                 .set('pageAmount', Math.ceil(items.size / action.amount));
 
+        /*
+        // This one was much trickier than it looks. It took a bit for me to
+        // realize I needed to merge in the original data becasuse the items
+        // map was continually shrinking and ruining the persistence.
+        */
         case SET_QUERY:
-            const filteredItems = state.get('items').filter(v => {
-                return v
-                    .get('name')
-                    .toLowerCase()
-                    .indexOf(action.query.toLowerCase()) !== -1
-            })
+            const filteredItems = state.get('items')
+                .mergeDeep(state.get('initialItems'))
+                .filter(v => {
+                    return v
+                        .get('name')
+                        .toLowerCase()
+                        .indexOf(action.query.toLowerCase()) !== -1
+                })
 
             return state
                 .set('query', action.query)
@@ -90,9 +97,9 @@ export default (
                     0,
                     state.get('perPage')
                 ))
-                // .set('items', filteredItems)
+                .set('items', filteredItems)
                 .set('pageAmount', Math.ceil(
-                    filteredItems.size / state.get('pageAmount')
+                    filteredItems.size / state.get('perPage')
                 ), 1);
 
         /*

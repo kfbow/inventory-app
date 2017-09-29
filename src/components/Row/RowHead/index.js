@@ -35,12 +35,12 @@ class RowHead extends Component {
 
                     if (this.state.checked) {
                         return this.props.inventory.get('items').map(el => {
-                            this.props.deleteCheck(el.get('id'));
+                            return this.props.deleteCheck(el.get('id'));
                         });
                     }
 
-                    this.props.inventory.get('items').map(el => {
-                        this.props.addCheck(el.get('id'));
+                    return this.props.inventory.get('items').map(el => {
+                        return this.props.addCheck(el.get('id'));
                     });
                 }}
                 style={styles.checkbox} />

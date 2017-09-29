@@ -5,6 +5,10 @@ body {
   font-family: 'Lato', sans-serif
 }
 
+span {
+    color: #939393
+}
+
 .right {
     text-align: right;
 }

@@ -35,6 +35,29 @@ export const fetchData = () => {
 }
 
 /*
+// puts the data of a single product given an ID and data. Example:
+//
+// {
+//   "name": "Red Shoes",
+//   "price": 1.1,
+//   "inventory": 11
+// }
+*/
+export const putProduct = (id, data) => {
+    return dispatch => {
+        axios({
+            method: 'put',
+            url: `${BASE_URL}/product/${id}`,
+            data: {
+                "name": data.name,
+                "price": data.price,
+                "inventory": data.inventory
+            }
+        });
+    }
+}
+
+/*
 // sets the data to state
 */
 const setData = (data) => ({

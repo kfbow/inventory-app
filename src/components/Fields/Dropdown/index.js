@@ -16,7 +16,8 @@ const Dropdown = ({
         return (
             <DropDownMenu
                 value={inventory.get('perPage')}
-                onChange={(e,i,v) => setPerPage(v)}>
+                onChange={(e,i,v) => setPerPage(v)}
+                underlineStyle={{ display: 'none' }}>
                 {
                     values.map((el, i) =>
                         <MenuItem
@@ -42,7 +43,8 @@ const Dropdown = ({
         return (
             <DropDownMenu
                 value={inventory.get('pageNumber')}
-                onChange={(e,i,v) => setPageNumber(v)}>
+                onChange={(e,i,v) => setPageNumber(v)}
+                underlineStyle={{ display: 'none' }}>
                 {items}
             </DropDownMenu>
         )

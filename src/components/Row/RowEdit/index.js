@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { ListItem } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import Checkbox from 'material-ui/Checkbox';
-import { editField } from 'redux/inventory/actions';
+import { editField, putProduct } from 'redux/inventory/actions';
 import { deleteCheck } from 'redux/checked/actions';
 import { setAlert } from 'redux/alert/actions';
 import TextInput from 'components/Fields/TextInput';
@@ -51,13 +51,20 @@ class RowEdit extends Component {
 
     componentWillUnmount() {
         this.props.columns.map((v, k) => {
+            const id = this.props.element.get('id');
             const key = k.toLowerCase();
 
-            return this.props.editField(
-                this.props.element.get('id'),
+            if (this.props.element.get(key) === this.state[key]) {
+                return;
+            }
+
+            this.props.editField(
+                id,
                 key,
                 this.state[key]
             );
+
+            return this.props.putProduct(id, this.state);
         })
     }
 
@@ -151,5 +158,5 @@ class RowEdit extends Component {
 
 export default connect(
     null,
-    { deleteCheck, editField, setAlert }
+    { deleteCheck, editField, putProduct, setAlert }
 )(RowEdit);
