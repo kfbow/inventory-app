@@ -7,7 +7,10 @@ const PerPage = ({ itemList, setItemsPerPage }) => {
         <div>
             <span key={`perPage-span`}>Items per page:</span>
             <DropDownMenu
+                className="per-page"
+                iconStyle={{ display: 'none' }}
                 key={`perPage-drop`}
+                underlineStyle={{ display: 'none' }}
                 value={itemList.get('itemsPerPage')}
                 onChange={(e,i,v) => setItemsPerPage(v)}
             >

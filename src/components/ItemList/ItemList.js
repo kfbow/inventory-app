@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import { List } from 'material-ui/List';
+import axios from 'axios';
+import { BASE_URL } from 'config/variables';
 
-import mock from '../../mock.json';
+// import mock from '../../mock.json';
 import Item from './Item';
 import PaginateRow from './PaginateRow';
 import SortBar from './SortBar';
 
 export default class ItemList extends Component {
     componentDidMount() {
-        this.props.setData(mock);
+        axios
+            .get(`${BASE_URL}/products`)
+            .then((res) => this.props.setData(res.data))
+            .catch((err) => console.log(err))
     }
 
 
@@ -40,8 +45,8 @@ export default class ItemList extends Component {
             if (sortName) {
                 newData = newData
                     .sort((a, b) => {
-                        a = a.get(sortName);
-                        b = b.get(sortName);
+                        a = Number(a.get(sortName)) ? a.get(sortName) : a.get(sortName).toLowerCase();
+                        b = Number(b.get(sortName)) ? b.get(sortName) : b.get(sortName).toLowerCase();;
                         if (ascOrder === true ? a < b : a > b) { return -1; }
                         if (ascOrder === true ? a > b : a < b) { return 1; }
                         if (a === b) { return 0; }

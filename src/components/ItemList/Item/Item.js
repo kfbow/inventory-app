@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { ListItem } from 'material-ui/List';
 import Checkbox from 'material-ui/Checkbox';
-import Divider from 'material-ui/Divider'
+import Divider from 'material-ui/Divider';
+import axios from 'axios';
+import { BASE_URL } from 'config/variables';
 
 import EditableField from './EditableField';
 
@@ -16,8 +18,19 @@ class Item extends Component {
 
     toggleCheck = (checked) => {
         const id = this.props.data.get('id');
+        const data = this.props.data;
 
         if (checked) {
+            console.log('sent');
+            axios.put(`${BASE_URL}/product/${id}`, {
+                "name": data.get('name'),
+                "price": data.get('price'),
+                "inventory": data.get('inventory')
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
             return this.props.removeChecked(id);
         }
 

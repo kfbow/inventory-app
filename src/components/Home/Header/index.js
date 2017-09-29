@@ -8,12 +8,17 @@ const Header = () => {
                 <h2>Products</h2>
             </div>
             <div className="six columns button-set right">
-                <RaisedButton label="Export" />
-                <RaisedButton label="Import" />
+                <RaisedButton
+                    label="Export"
+                    labelStyle={{ textTransform: 'none' }} />
+                <RaisedButton
+                    label="Import"
+                    labelStyle={{ textTransform: 'none' }} />
                 <RaisedButton
                     backgroundColor="#0076ff"
                     label="Add Product"
-                    labelColor="#fff" />
+                    labelColor="#fff"
+                    labelStyle={{ textTransform: 'none' }} />
             </div>
         </div>
     )

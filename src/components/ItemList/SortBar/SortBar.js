@@ -27,7 +27,9 @@ export default class SortBar extends Component {
             return this.props.clearChecked();
         }
 
-        this.props.itemList.get('data').map(el => this.props.addChecked(el.get('id')));
+        this.props.itemList
+            .get('data')
+            .map(el => this.props.addChecked(el.get('id')));
     }
 
     renderCheckbox = (checked) => {

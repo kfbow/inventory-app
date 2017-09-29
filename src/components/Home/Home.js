@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Header from './Header';
-import ItemList from '../ItemList';
-import SearchBar from '../SearchBar';
+import ItemList from 'components/ItemList';
+import SearchBar from 'components/SearchBar';
 
 const renderAlert = (alert) => {
     const message = alert.get('message')

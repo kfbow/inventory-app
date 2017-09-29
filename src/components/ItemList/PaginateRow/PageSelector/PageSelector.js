@@ -35,7 +35,9 @@ const PageSelector = ({ itemList, setPageNumber }) => {
 
     return (
         <div>
-            <IconButton onClick={() => changePage('down')} iconClassName="fa fa-angle-left" />
+            <IconButton
+                onClick={() => changePage('down')}
+                iconClassName="fa fa-angle-left" />
             <DropDownMenu
                 value={itemList.get('pageNumber')}
                 onChange={(e,i,v) => setPageNumber(v)}>
