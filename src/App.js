@@ -4,7 +4,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import 'pills/dist/pills.min.css';
 
 import './App.css';
-import Home from './components/Home';
+import Home from 'pages/Home';
 
 const mui = getMuiTheme({
   fontFamily: 'Lato'

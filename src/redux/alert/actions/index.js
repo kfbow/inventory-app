@@ -1,17 +1,18 @@
-import {
-    NEW_ALERT
-} from '../constants';
+import { SET_ALERT } from '../constants';
 
-export const newAlert = (message) => ({
+/*
+// set the alert message in state
+*/
+const newAlert = (message) => ({
     message,
-    type: NEW_ALERT,
-});
+    type: SET_ALERT
+})
 
-// export const newAlert = (message) => {
-//     return dispatch => {
-//         dispatch(setAlert(message));
-//         setTimeout(() => {
-//             dispatch(setAlert(''));
-//         }, 3000);
-//     };
-// }
+export const setAlert = (message) => {
+    return dispatch => {
+        dispatch(newAlert(message));
+        setTimeout(() => {
+            dispatch(newAlert(''));
+        }, 3000);
+    };
+}

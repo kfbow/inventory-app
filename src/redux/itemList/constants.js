@@ -1,9 +1,0 @@
-export const ADD_CHECKED = 'ADD_CHECKED';
-export const CLEAR_CHECKED = 'CLEAR_CHECKED';
-export const EDIT_FIELD = 'EDIT_FIELD';
-export const REMOVE_CHECKED = 'REMOVE_CHECKED';
-export const SET_DATA = 'SET_DATA';
-export const SET_ITEMS_PER_PAGE = 'SET_ITEMS_PER_PAGE';
-export const SET_PAGE_NUMBER = 'SET_PAGE_NUMBER';
-export const SET_PAGE_AMOUNT = 'SET_PAGE_AMOUNT';
-export const SET_SORT = 'SET_SORT';

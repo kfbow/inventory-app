@@ -1,7 +1,0 @@
-@import './Item/styles.css';
-@import './SortBar/styles.css';
-@import './PaginateRow/styles.css';
-
-.item-list .columns {
-    padding: 0;
-}

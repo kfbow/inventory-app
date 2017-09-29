@@ -3,9 +3,9 @@ import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 import Immutable from 'immutable';
 
-import itemList from './itemList/reducers';
-import searchBar from './searchBar/reducers';
 import alert from './alert/reducers';
+import checked from './checked/reducers';
+import inventory from './inventory/reducers';
 
 const logger = createLogger({
     stateTransformer: (state) => {
@@ -26,8 +26,8 @@ const logger = createLogger({
 export default (initialState = {}) => createStore(
     combineReducers({
         alert,
-        itemList,
-        searchBar
+        checked,
+        inventory
     }),
     initialState,
     applyMiddleware(logger, thunk)

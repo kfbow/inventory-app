@@ -1,16 +1,18 @@
-import { fromJS } from 'immutable';
 import {
-    NEW_ALERT
+    SET_ALERT
 } from '../constants';
+import { fromJS } from 'immutable';
 
-const initialState = fromJS({ message: '' });
+const initialState = fromJS({
+    message: ''
+});
 
 export default (
     state = initialState,
     action
 ) => {
     switch (action.type) {
-        case NEW_ALERT:
+        case SET_ALERT:
             return state.set('message', action.message);
 
         default:

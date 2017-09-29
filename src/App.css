@@ -1,12 +1,8 @@
-@import './assets/font-awesome-4.7.0/css/font-awesome.min.css';
 @import url('https://fonts.googleapis.com/css?family=Lato');
-
-@import './components/Home/styles.css';
-@import './components/ItemList/styles.css';
-@import './components/SearchBar/styles.css';
+@import './assets/font-awesome-4.7.0/css/font-awesome.min.css';
 
 body {
-    font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif
 }
 
 .right {
